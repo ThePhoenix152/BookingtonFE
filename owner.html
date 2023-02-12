@@ -617,31 +617,26 @@
 						<div class="content">
 							<h2> Card One</h2>
 							<p>Lorem ipsum, dolor sit amet consectetur, adipisicing elit. Repellendus omnis impedit officiis quas repellat laboriosam reiciendis error officia eos facilis!</p>
-							<!-- Button trigger modal -->
-							<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
-							  Launch demo modal
-							</button>
-
-							<!-- Modal -->
-							<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-							  <div class="modal-dialog modal-dialog-centered" role="document">
-							    <div class="modal-content">
-							      <div class="modal-header">
-							        <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
-							        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-							          <span aria-hidden="true">&times;</span>
-							        </button>
-							      </div>
-							      <div class="modal-body">
-							        ...
-							      </div>
-							      <div class="modal-footer">
-							        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-							        <button type="button" class="btn btn-primary">Save changes</button>
+							<div class="openBtn">
+							      <button class="openButton" onclick="openForm()"><strong>Open Form</strong></button>
+							    </div>
+							    <div class="loginPopup">
+							      <div class="formPopup" id="popupForm">
+							        <form action="/action_page.php" class="formContainer">
+							          <h2>Please Log in</h2>
+							          <label for="email">
+							            <strong>E-mail</strong>
+							          </label>
+							          <input type="text" id="email" placeholder="Your Email" name="email" required>
+							          <label for="psw">
+							            <strong>Password</strong>
+							          </label>
+							          <input type="password" id="psw" placeholder="Your Password" name="psw" required>
+							          <button type="submit" class="btn">Log in</button>
+							          <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+							        </form>
 							      </div>
 							    </div>
-							  </div>
-							</div>
 						</div>
 					</div>
 
@@ -652,31 +647,19 @@
 						<div class="content">
 							<h2> Card Two</h2>
 							<p>Lorem ipsum dolor, sit amet, consectetur adipisicing elit. Ipsa ullam voluptatem natus totam ea qui saepe minima voluptatibus, consectetur dicta.</p>
-							<!-- Button trigger modal -->
-							<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
-							  Launch demo modal
-							</button>
+							<button id="myBtn">Open Modal</button>
 
-							<!-- Modal -->
-							<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-							  <div class="modal-dialog modal-dialog-centered" role="document">
-							    <div class="modal-content">
-							      <div class="modal-header">
-							        <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
-							        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-							          <span aria-hidden="true">&times;</span>
-							        </button>
-							      </div>
-							      <div class="modal-body">
-							        ...
-							      </div>
-							      <div class="modal-footer">
-							        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-							        <button type="button" class="btn btn-primary">Save changes</button>
-							      </div>
-							    </div>
+							<!-- The Modal -->
+							<div id="myModal" class="modal">
+
+							  <!-- Modal content -->
+							  <div class="modal-content">
+							    <span class="close">&times;</span>
+							    <p>Some text in the Modal..</p>
 							  </div>
-							</div>						</div>
+
+							</div>
+						</div>
 					</div>
 
 					<div class="card1">
@@ -685,32 +668,7 @@
 						</div>
 						<div class="content">
 							<h2> Card Three</h2>
-							<p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Labore facere ab quia, ratione esse praesentium numquam! Provident corrupti, accusantium alias?</p>
-							<!-- Button trigger modal -->
-							<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
-							  Launch demo modal
-							</button>
-
-							<!-- Modal -->
-							<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-							  <div class="modal-dialog modal-dialog-centered" role="document">
-							    <div class="modal-content">
-							      <div class="modal-header">
-							        <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
-							        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-							          <span aria-hidden="true">&times;</span>
-							        </button>
-							      </div>
-							      <div class="modal-body">
-							        ...
-							      </div>
-							      <div class="modal-footer">
-							        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-							        <button type="button" class="btn btn-primary">Save changes</button>
-							      </div>
-							    </div>
-							  </div>
-							</div>
+							<p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Labore facere ab quia, ratione esse praesentium numquam! Provident corrupti, accusantium alias?</p>				
 						</div>
 					</div>
 
@@ -729,6 +687,33 @@
 		$(document).ready(function () {
 		    $('#example').DataTable();
 		});
+	</script>
+	<script>
+	// Get the modal
+	var modal = document.getElementById("myModal");
+
+	// Get the button that opens the modal
+	var btn = document.getElementById("myBtn");
+
+	// Get the <span> element that closes the modal
+	var span = document.getElementsByClassName("close")[0];
+
+	// When the user clicks the button, open the modal 
+	btn.onclick = function() {
+	  modal.style.display = "block";
+	}
+
+	// When the user clicks on <span> (x), close the modal
+	span.onclick = function() {
+	  modal.style.display = "none";
+	}
+
+	// When the user clicks anywhere outside of the modal, close it
+	window.onclick = function(event) {
+	  if (event.target == modal) {
+	    modal.style.display = "none";
+	  }
+	}
 	</script>
 
 </body>

@@ -67,7 +67,7 @@ body{
 	line-height: 25px;
 }
 .wrapper .main_content .infor .div{
-	margin-bottom: ;
+	margin-bottom: inherit;
 }
 
 .tab button {
@@ -160,7 +160,7 @@ color:#69707a;
 
 #ManageYard
 {
-	display: inline-block;
+	display: none;
 	justify-content: center;
 	align-items: center;
 	background: white;
@@ -240,4 +240,26 @@ color:#69707a;
 .card1 button:hover {
 	background: #ff5e11;
 	box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+
+
+
+
+
+.btnviewcontent{
+	display: none;
+}
+.btnviewcontent p{
+	border: gray;
+}
+.open-button {
+  background-color: #555;
+  color: white;
+  
+}
+.cancel-button {
+  background-color: #555;
+  color: white;
+  
 }
